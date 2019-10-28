@@ -4,7 +4,7 @@
 class EbooksController < ApplicationController
   # GET /ebooks/rate
   def rate
-    # todo: implement controller
+    # TODO: implement controller
     validate_rate_params
     ebook = Ebook.new
     ebook.id = params[:id]
@@ -13,7 +13,7 @@ class EbooksController < ApplicationController
 
   # POST /ebooks/download
   def download
-    # todo: implement controller
+    # TODO: implement controller
     validate_download_params
     ebook = Ebook.new
     ebook.id = params[:id]
