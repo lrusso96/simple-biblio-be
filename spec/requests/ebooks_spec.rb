@@ -1,4 +1,5 @@
-# spec/requests/todos_spec.rb
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Ebooks API', type: :request do
@@ -21,9 +22,6 @@ RSpec.describe 'Ebooks API', type: :request do
 
       it 'rates the ebook' do
         expect(json['id']).to eq(ebook_id)
-        ebooks.each do |eb|
-          puts eb.title, eb.rel_id, eb.provider_id
-        end
       end
 
       it 'returns status code 200' do
