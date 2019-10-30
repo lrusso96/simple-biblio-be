@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_090153) do
+ActiveRecord::Schema.define(version: 2019_10_30_074936) do
 
   create_table "ebooks", force: :cascade do |t|
     t.string "title"
+    t.integer "provider_id"
+    t.integer "rel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["provider_id", "rel_id"], name: "index_ebooks_on_provider_id_and_rel_id", unique: true
+    t.index ["provider_id"], name: "index_ebooks_on_provider_id"
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,4 +36,5 @@ ActiveRecord::Schema.define(version: 2019_10_28_090153) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "ebooks", "providers"
 end
