@@ -29,9 +29,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS)
 # gem 'rack-cors'
 
-# codecov generation and upload
-gem 'simplecov', require: false, group: :test
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -49,6 +46,8 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'faker'
+  # codecov generation and upload
+  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 4.1.2'
 end
 
