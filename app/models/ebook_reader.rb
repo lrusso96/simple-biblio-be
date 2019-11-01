@@ -8,7 +8,7 @@ class EbookReader < ApplicationRecord
   validates_presence_of :ebook
   validates :ebook_id, uniqueness: { scope: :user }
 
-  def as_json(options={})
+  def as_json(_options = {})
     { downloaded_at: created_at,
       ebook: ebook }
   end

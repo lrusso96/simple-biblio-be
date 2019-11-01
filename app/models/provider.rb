@@ -4,8 +4,8 @@ class Provider < ApplicationRecord
   # validations
   validates_presence_of :name
 
-  def as_json(options={})
+  def as_json(_options = {})
     { name: name,
-      id: id, }
+      id: id }
   end
 end
