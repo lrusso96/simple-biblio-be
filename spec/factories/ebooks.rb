@@ -8,12 +8,14 @@ FactoryBot.define do
 
   factory :ebook do
     title { Faker::Lorem.word }
+    author { Faker::Name.last_name }
+
     provider
     rel_id { FactoryBot.generate(:random_id) }
 
     # lazy way to obtain "collisions" in provider_id
     after(:create) do |ebook|
-      ebook.provider_id = ebook.provider_id % 2
+      ebook.provider_id = 1 + (ebook.provider_id % 2)
     end
   end
 end

@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :provider do
-    name { Faker::Lorem.word }
+    name { Faker::FunnyName.two_word_name }
   end
 end
