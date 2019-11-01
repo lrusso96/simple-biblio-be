@@ -24,6 +24,7 @@ gem 'httparty'
 gem 'jwt'
 # JSON parsing and more
 gem 'json'
+gem 'nokogiri'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

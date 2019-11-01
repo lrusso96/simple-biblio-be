@@ -8,4 +8,12 @@ class Ebook < ApplicationRecord
   # validations
   validates_presence_of :author, :title, :rel_id
   validates :rel_id, uniqueness: { scope: :provider }
+
+  def as_json(options={})
+    { title: title,
+      author: author,
+      provider: provider,
+      id: rel_id
+    }
+  end
 end
