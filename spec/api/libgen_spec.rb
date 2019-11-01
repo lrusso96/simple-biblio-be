@@ -7,7 +7,8 @@ RSpec.describe Libgen do
     it 'returns an ebook' do
       ret = Libgen.search(rand( 2_000_000))
       expect(ret).not_to be_nil
-      puts "#{ret.title} - #{ret.author} - #{ret.provider}"
+      expect(ret.title).not_to be_empty
+      expect(ret.author).not_to be_empty
     end
   end
 end
