@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+##
+# This class represents a third-party Ebook provider
 class Provider < ApplicationRecord
   # validations
   validates_presence_of :name
