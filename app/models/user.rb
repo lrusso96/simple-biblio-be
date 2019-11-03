@@ -14,5 +14,5 @@ class User < ApplicationRecord
   acts_as_voter
 
   # validations
-  validates_presence_of :name, :email, :password_digest
+  validates_presence_of %i[name email password_digest]
 end

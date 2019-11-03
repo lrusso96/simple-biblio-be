@@ -12,7 +12,7 @@ class Ebook < ApplicationRecord
   acts_as_votable
 
   # validations
-  validates_presence_of :author, :title, :rel_id
+  validates_presence_of %i[author title rel_id]
   validates :rel_id, uniqueness: { scope: :provider }
 
   def as_json(_options = {})
