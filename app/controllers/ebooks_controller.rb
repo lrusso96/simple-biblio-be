@@ -4,10 +4,9 @@
 class EbooksController < ApplicationController
   # GET /ebooks/rate
   def rate
-    # TODO: implement controller
     validate_rate_params
-    ebook = Ebook.new
-    ebook.rel_id = params[:ebook]
+    ebook = download_ebook params
+    ebook.liked_by current_user, vote_weight: params[:rating]
     json_response(ebook)
   end
 

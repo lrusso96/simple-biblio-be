@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :ebook_readers
   has_many :ebooks, through: :ebook_readers
 
+  acts_as_voter
+
   # Validations
   validates_presence_of :name, :email, :password_digest
 end
