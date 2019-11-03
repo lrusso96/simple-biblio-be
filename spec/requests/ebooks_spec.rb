@@ -2,6 +2,8 @@
 
 require 'rails_helper'
 
+# FIXME: remove some magic numbers
+# FIXME: reduce block size and improve modularization
 RSpec.describe 'Ebooks API', type: :request do
   # initialize test data
   let(:user) { create(:user) }
@@ -24,6 +26,8 @@ RSpec.describe 'Ebooks API', type: :request do
 
       it 'rates the ebook' do
         expect(json['id']).to eq(ebook_id)
+        expect(json['ratings']).to eq(1)
+        expect(json['rating_avg']).to eq(5)
       end
 
       it 'returns status code 200' do
