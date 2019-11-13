@@ -6,7 +6,7 @@ require 'nokogiri'
 class Feedbooks
   def self.search(id)
     # TODO: handle errors
-    res = HTTParty.post("http://feedbooks.com/book/#{id}.atom")
+    res = HTTParty.post "http://feedbooks.com/book/#{id}.atom"
     doc = Nokogiri.XML res
     book = Ebook.new
     book.rel_id = id

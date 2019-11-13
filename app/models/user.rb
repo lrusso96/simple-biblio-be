@@ -16,5 +16,4 @@ class User < ApplicationRecord
   # validations
   validates_presence_of %i[name email password_digest]
   validates :email, uniqueness: true
-
 end
