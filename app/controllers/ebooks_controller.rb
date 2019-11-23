@@ -62,7 +62,7 @@ class EbooksController < ApplicationController
   end
 
   def get_downloader(id)
-    providers = [Libgen, Feedbooks]
+    providers = [Libgen, Feedbooks, StandardEbooks]
     providers[id.to_i - 1]
   end
 
