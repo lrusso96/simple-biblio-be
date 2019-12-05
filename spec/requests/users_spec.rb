@@ -40,4 +40,22 @@ RSpec.describe 'Users API', type: :request do
       end
     end
   end
+
+  # User downloads test suite
+  describe 'GET /downloads' do
+    context 'when valid request' do
+      let(:user) { create(:user) }
+      let(:authorized_headers) { valid_headers }
+      before { get '/downloads', headers: authorized_headers }
+
+      it 'completes successfully' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'returns downloads' do
+        expect(json['count']).not_to be_nil
+        expect(json['downloads']).not_to be_nil
+      end
+    end
+  end
 end

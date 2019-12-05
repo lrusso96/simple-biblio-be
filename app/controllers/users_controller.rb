@@ -25,6 +25,12 @@ class UsersController < ApplicationController
     json_response response, :created
   end
 
+  def downloads
+    ret = EbookReader.where(user_id: current_user)
+    response = { downloads: ret, count: ret.size }
+    json_response response
+  end
+
   private
 
   def user_params
