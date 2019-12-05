@@ -5,10 +5,11 @@ class AuthenticationController < ApplicationController
 
   # return auth token once user is authenticated
   def authenticate
-    auth_token = AuthenticateUser
-                 .new(auth_params[:email], auth_params[:password])
-                 .call
-    json_response auth_token: auth_token
+    auth_user = AuthenticateUser
+                    .new(auth_params[:email], auth_params[:password])
+    auth_token = auth_user.call
+    response = { user: auth_user.user, auth_token: auth_token }
+    json_response response
   end
 
   private
