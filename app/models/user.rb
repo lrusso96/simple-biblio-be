@@ -16,4 +16,11 @@ class User < ApplicationRecord
   # validations
   validates_presence_of %i[name email password_digest]
   validates :email, uniqueness: true
+
+  def as_json(_options = {})
+    count = EbookReader.where(user_id: id).count
+    { name: name,
+      email: email,
+      downloads: count }
+  end
 end
