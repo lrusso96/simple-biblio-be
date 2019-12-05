@@ -21,8 +21,7 @@ class Libgen
     book = Ebook.new
     book.author = res['author']
     book.title = res['title']
-    # name: 'libgen'
-    book.provider = Provider.find_by(id: 1)
+    book.provider = Provider.find_by(id: 2)
     book
   end
 end

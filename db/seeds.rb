@@ -5,4 +5,8 @@
 # The data can then be loaded with the rails db:seed command
 # (or created alongside the database with db:setup).
 
-Provider.create([{ name: 'Libgen' }, { name: 'Feedbooks' }, { name: 'StandardEbooks' }])
+feedbooks = { id: 1, name: 'Feedbooks' }
+libgen = { id: 2, name: 'Libgen' }
+standard_ebooks = { id: 3, name: 'StandardEbooks' }
+
+Provider.create([feedbooks, libgen, standard_ebooks])

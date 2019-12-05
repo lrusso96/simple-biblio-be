@@ -13,7 +13,7 @@ class Feedbooks
     book.title = doc.at_css('title').text
     book.author = doc.at_css('name').text
     book.title = doc.at_css('title').text
-    book.provider = Provider.find_by(id: 2)
+    book.provider = Provider.find_by(id: 1)
     book
   end
 end

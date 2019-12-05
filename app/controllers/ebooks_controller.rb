@@ -19,7 +19,7 @@ class EbooksController < ApplicationController
     validate_rate_params
     ebook = download_ebook params
     ebook.liked_by current_user, vote_weight: params[:rating]
-    json_response(ebook)
+    json_response ebook
   end
 
   ##
@@ -62,7 +62,7 @@ class EbooksController < ApplicationController
   end
 
   def get_downloader(id)
-    providers = [Libgen, Feedbooks, StandardEbooks]
+    providers = [Feedbooks, Libgen, StandardEbooks]
     providers[id.to_i - 1]
   end
 

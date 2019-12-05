@@ -10,7 +10,7 @@ RSpec.describe 'Ebooks API', type: :request do
   let!(:ebooks) { create_list(:ebook, 10) }
   let(:ebook_id) { ebooks.first.rel_id }
   let(:rand_id) { rand(2_000_000) }
-  let(:provider_id) { 1 }
+  let(:provider_id) { 2 }
   # authorize request
   let(:headers) { valid_headers }
 
