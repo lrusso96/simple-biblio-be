@@ -56,7 +56,7 @@ group :test do
   gem 'faker'
   # codecov generation and upload
   gem 'simplecov', require: false
-  gem 'shoulda-matchers', '~> 4.1.2'
+  gem 'shoulda-matchers', '~> 4.2.0'
 end
 
 group :production do
