@@ -18,9 +18,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   def as_json(_options = {})
-    count = EbookReader.where(user_id: id).count
+    dwn = EbookReader.where(user_id: id).count
+    reviews = User.find_by(id: id).votes.count
     { name: name,
       email: email,
-      downloads: count }
+      downloads: dwn,
+      reviews: reviews }
   end
 end
