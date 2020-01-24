@@ -12,9 +12,18 @@ class AuthenticationController < ApplicationController
     json_response response
   end
 
+  def google_authenticate
+    FirebaseIdToken::Certificates.request!
+    FirebaseIdToken::Signature.verify(google_oauth_params[:token])
+  end
+
   private
 
   def auth_params
     params.permit %i[email password]
+  end
+
+  def google_oauth_params
+    params.permit %i[token]
   end
 end

@@ -18,7 +18,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'acts_as_votable'
 
-# simple http
+# Verify Firebase tokens
+gem 'firebase_id_token', '~> 2.3.1'
+
+# Simple http
 gem 'httparty'
 
 gem 'jwt'
