@@ -36,6 +36,29 @@ RSpec.describe 'Ebooks API', type: :request do
     end
   end
 
+  # Test suite for POST /ebooks/stats
+  describe 'POST /ebooks/stats' do
+    # valid payload
+    let(:valid_attributes) do
+      { ebook: ebook_id, provider: provider_id }.to_json
+    end
+
+    context 'when the request is valid' do
+      before { post '/ebooks/stats', params: valid_attributes, headers: headers }
+
+      it 'rates the ebook' do
+        expect(json['id']).to eq(ebook_id)
+        expect(json['ratings']).to eq(0)
+        expect(json['rating_avg']).to eq(0)
+      end
+
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
+    end
+  end
+
+
   # Test suite for POST /ebooks/download
   describe 'POST /ebooks/download' do
     # valid payload

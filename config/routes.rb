@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   post 'ebooks/download', to: 'ebooks#download'
   post 'ebooks/rate', to: 'ebooks#rate'
+  post 'ebooks/stats', to: 'ebooks#stats'
 end

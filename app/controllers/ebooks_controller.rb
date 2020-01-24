@@ -23,6 +23,23 @@ class EbooksController < ApplicationController
   end
 
   ##
+  # Retrieve stats about an ebooks.
+  #
+  # @return the stats
+  #
+  # == Request
+  # [POST] /ebooks/stats {params}
+  #
+  # == Supported parameters
+  # [ebook] ebook identifier, unique per provider
+  # [provider] provider identifier
+  def stats
+    validate_stats_params
+    ebook = download_ebook params
+    json_response ebook
+  end
+
+  ##
   # Let the current user to add an ebook to its downloads.
   #
   # @return EbookReader instance associated with current user and the ebook.
@@ -68,6 +85,10 @@ class EbooksController < ApplicationController
 
   def validate_rate_params
     params.require %i[ebook provider rating]
+  end
+
+  def validate_stats_params
+    params.require %i[ebook provider]
   end
 
   def validate_download_params
