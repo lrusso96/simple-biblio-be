@@ -14,16 +14,25 @@ class AuthenticationController < ApplicationController
 
   def google_authenticate
     FirebaseIdToken::Certificates.request!
-    FirebaseIdToken::Signature.verify(google_oauth_params[:token])
+    FirebaseIdToken::Signature.verify(params[:google_token])
   end
 
   private
 
   def auth_params
-    params.permit %i[email password]
+    if params[:google_token].nil?
+      params.permit %i[email password google_token]
+    else
+      google_oauth_params
+    end
   end
 
   def google_oauth_params
-    params.permit %i[token]
+    params[:google_token] = params[:google]
+    User.create user_params
+  end
+
+  def user_params
+    params.permit %i[name email password password_confirmation]
   end
 end
