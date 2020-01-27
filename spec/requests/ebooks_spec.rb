@@ -50,6 +50,7 @@ RSpec.describe 'Ebooks API', type: :request do
         expect(json['id']).to eq(ebook_id)
         expect(json['ratings']).to eq(0)
         expect(json['rating_avg']).to eq(0)
+        expect(json['downloads']).to eq(0)
       end
 
       it 'returns status code 200' do
@@ -74,6 +75,7 @@ RSpec.describe 'Ebooks API', type: :request do
 
       it 'notifies that the ebook has been downloaded' do
         expect(json['ebook']['id']).to eq(ebook_id)
+        expect(json['ebook']['downloads']).to eq(1)
       end
 
       it 'returns status code 200' do
