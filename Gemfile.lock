@@ -76,7 +76,7 @@ GEM
     faker (2.10.2)
       i18n (>= 1.6, < 2)
     ffi (1.12.1)
-    firebase_id_token (2.3.1)
+    firebase_id_token (2.3.2)
       httparty (~> 0.16, >= 0.16.2)
       jwt (~> 2.1, >= 2.1.0)
       redis (~> 4.0, >= 4.0.1)
@@ -207,7 +207,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails (~> 5.1.1)
   faker
-  firebase_id_token (~> 2.3.1)
+  firebase_id_token (~> 2.3.2)
   httparty
   json
   jwt
